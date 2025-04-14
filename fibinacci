@@ -1,0 +1,21 @@
+import java.util.*;
+public class fibinacci{
+    public void calcu(int n){
+        int a=0,b=1,c,count=0;
+        while(count<n){
+            System.out.println(a+" ");
+            c=a+b;
+            a=b;
+            b=c;
+            count+=1;
+        }
+    }
+public static void main(String args[]){
+    Scanner sc=new Scanner(System.in);
+    fibinacci b=new fibinacci();
+    System.out.println("enter the limit:");
+    int num=sc.nextInt();
+    System.out.println("fibinacci series upto the limit "+num);
+    b.calcu(num);
+}
+}
