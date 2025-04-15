@@ -1,0 +1,54 @@
+// create a class cpu with atribute  price .create an inner class processor with atribute no of cores and manufacturer and a stattc nested class ram  with atribute memoryand manufacturer inside cpu.create an object of cpu and  print details of processor and ram
+
+
+
+class CPU {
+    int price;
+    
+    CPU(int price) {
+        this.price = price;
+    }
+    
+    class Processor {
+        int noOfCores;
+        String manufacturer;
+        
+        Processor(int noOfCores, String manufacturer) {
+            this.noOfCores = noOfCores;
+            this.manufacturer = manufacturer;
+        }
+        
+        void displayProcessorDetails() {
+            System.out.println("Processor Details:");
+            System.out.println("Number of Cores: " + noOfCores);
+            System.out.println("Manufacturer: " + manufacturer);
+        }
+    }
+    
+    static class RAM {
+        int memory;
+        String manufacturer;
+        
+        RAM(int memory, String manufacturer) {
+            this.memory = memory;
+            this.manufacturer = manufacturer;
+        }
+        
+        void displayRAMDetails() {
+            System.out.println("RAM Details:");
+            System.out.println("Memory: " + memory + "GB");
+            System.out.println("Manufacturer: " + manufacturer);
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        CPU cpu = new CPU(25000);
+        CPU.Processor processor = cpu.new Processor(8, "Intel");
+        CPU.RAM ram = new CPU.RAM(16, "Corsair");
+        
+        processor.displayProcessorDetails();
+        ram.displayRAMDetails();
+    }
+}
