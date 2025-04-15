@@ -1,0 +1,33 @@
+class AreaCalculator
+
+    // Area of a rectangle with double and int
+    public double computeArea(double length, int width) {
+        return length * width;
+    }
+
+    // Area of a rectangle with int and int
+    public int computeArea(int length, int width) {
+        return length * width;
+    }
+
+    // Area of a square with int
+    public int computeArea(int side) {
+        return side * side;
+    }
+
+    // Area of a square with double
+    public double computeAreaSquare(double side) {
+        return side * side;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        AreaCalculator areaCalculator = new AreaCalculator();
+        System.out.println("Area Calculations:");
+        System.out.println("Rectangle (double, int): " + areaCalculator.computeArea(5.5, 4));
+        System.out.println("Rectangle (int, int): " + areaCalculator.computeArea(5, 6));
+        System.out.println("Square (int): " + areaCalculator.computeArea(7));
+        System.out.println("Square (double): " + areaCalculator.computeAreaSquare(4.4));
+    }
+}
