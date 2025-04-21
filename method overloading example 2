@@ -1,0 +1,37 @@
+Q : perform method overloading ,compute vloume [ cube(double),cuboid(double),sphere(double),cylider(double),cone(double)]
+
+
+code: 
+
+public class VolumeCalculator {
+
+    public double computeVolume(double side) {
+        return Math.pow(side, 3);
+    }
+
+    public double computeVolume(double length, double breadth, double height) {
+        return length * breadth * height;
+    }
+
+    public double computeVolumeSphere(double radius) {
+        return (4.0 / 3.0) * Math.PI * Math.pow(radius, 3);
+    }
+
+    public double computeVolumeCylinder(double radius, double height) {
+        return Math.PI * Math.pow(radius, 2) * height;
+    }
+
+    public double computeVolumeCone(double radius, double height) {
+        return (1.0 / 3.0) * Math.PI * Math.pow(radius, 2) * height;
+    }
+
+    public static void main(String[] args) {
+        VolumeCalculator vc = new VolumeCalculator();
+
+        System.out.println("Volume of Cube (side=3): " + vc.computeVolume(3));
+        System.out.println("Volume of Cuboid (3x4x5): " + vc.computeVolume(3, 4, 5));
+        System.out.println("Volume of Sphere (radius=2): " + vc.computeVolumeSphere(2));
+        System.out.println("Volume of Cylinder (radius=2, height=5): " + vc.computeVolumeCylinder(2, 5));
+        System.out.println("Volume of Cone (radius=2, height=5): " + vc.computeVolumeCone(2, 5));
+    }
+}
