@@ -1,0 +1,50 @@
+class Animal {
+    String species;
+    int age;
+    String color;
+    double weight;
+
+    // Constructor for Animal
+    public Animal(String species, int age, String color, double weight) {
+        this.species = species;
+        this.age = age;
+        this.color = color;
+        this.weight = weight;
+    }
+
+    // Method to display Animal details
+    public void displayAnimal() {
+        System.out.println("Species: " + species);
+        System.out.println("Age: " + age + " years");
+        System.out.println("Color: " + color);
+        System.out.println("Weight: " + weight + " kg");
+    }
+}
+
+// Derived class Dog inheriting from Animal
+class Dog extends Animal {
+    private String name;
+    private String owner;
+
+    // Constructor for Dog
+    public Dog(String species, int age, String color, double weight, String name, String owner) {
+        super(species, age, color, weight); // call Animal constructor
+        this.name = name;
+        this.owner = owner;
+    }
+
+    // Method to display Dog details
+    public void displayDog() {
+        displayAnimal(); // show inherited attributes
+        System.out.println("Name: " + name);
+        System.out.println("Owner: " + owner);
+    }
+}
+
+// Demo class
+public class Main {
+    public static void main(String[] args) {
+        Dog dog = new Dog("Canine", 3, "Brown", 18.5, "Buddy", "Alice");
+        dog.displayDog();
+    }
+}
