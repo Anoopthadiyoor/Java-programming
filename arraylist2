@@ -1,0 +1,87 @@
+Q: create a class product (name,price).write a menu driven program to add products ,sort product by name,display products
+
+code:
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+
+public class NameManager {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        ArrayList<String> names = new ArrayList<>();
+        int choice;
+
+        do {
+            System.out.println("\n--- Name Manager ---");
+            System.out.println("1. Add Name");
+            System.out.println("2. Rename Name");
+            System.out.println("3. Search Name");
+            System.out.println("4. Sort Names");
+            System.out.println("5. Display All Names");
+            System.out.println("6. Exit");
+            System.out.print("Enter your choice: ");
+            choice = sc.nextInt();
+            sc.nextLine(); // clear the newline
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter name to add: ");
+                    String newName = sc.nextLine();
+                    names.add(newName);
+                    System.out.println("Name added.");
+                    break;
+
+                case 2:
+                    System.out.print("Enter current name to rename: ");
+                    String currentName = sc.nextLine();
+                    if (names.contains(currentName)) {
+                        System.out.print("Enter new name: ");
+                        String updatedName = sc.nextLine();
+                        int index = names.indexOf(currentName);
+                        names.set(index, updatedName);
+                        System.out.println("Name renamed.");
+                    } else {
+                        System.out.println("Name not found.");
+                    }
+                    break;
+
+                case 3:
+                    System.out.print("Enter name to search: ");
+                    String searchName = sc.nextLine();
+                    if (names.contains(searchName)) {
+                        System.out.println("Name found at position: " + names.indexOf(searchName));
+                    } else {
+                        System.out.println("Name not found.");
+                    }
+                    break;
+
+                case 4:
+                    Collections.sort(names);
+                    System.out.println("Names sorted alphabetically.");
+                    break;
+
+                case 5:
+                    if (names.isEmpty()) {
+                        System.out.println("No names in the list.");
+                    } else {
+                        System.out.println("Names in the list:");
+                        for (String name : names) {
+                            System.out.println(name);
+                        }
+                    }
+                    break;
+
+                case 6:
+                    System.out.println("Exiting program.");
+                    break;
+
+                default:
+                    System.out.println("Invalid choice. Try again.");
+            }
+
+        } while (choice != 6);
+
+        sc.close();
+    }
+}
