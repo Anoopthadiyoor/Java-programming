@@ -1,0 +1,80 @@
+Q: create interface comparable with functons volume() and compareByvolume (compare,other) create 2 classes cuboid and cylinder and compare their volumes
+
+code:
+
+interface ComparableVolume {
+    double volume();
+    void compareByVolume(ComparableVolume other);
+}
+
+class Cuboid implements ComparableVolume {
+    double length, breadth, height;
+
+    Cuboid(double length, double breadth, double height) {
+        this.length = length;
+        this.breadth = breadth;
+        this.height = height;
+    }
+
+    public double volume() {
+        return length * breadth * height;
+    }
+
+    public void compareByVolume(ComparableVolume other) {
+        double myVolume = this.volume();
+        double otherVolume = other.volume();
+
+        System.out.println("Cuboid Volume: " + myVolume);
+        System.out.println("Other Volume: " + otherVolume);
+
+        if (myVolume > otherVolume) {
+            System.out.println("Cuboid has greater volume.");
+        } else if (myVolume < otherVolume) {
+            System.out.println("Cuboid has lesser volume.");
+        } else {
+            System.out.println("Both have equal volume.");
+        }
+    }
+}
+
+class Cylinder implements ComparableVolume {
+    double radius, height;
+
+    Cylinder(double radius, double height) {
+        this.radius = radius;
+        this.height = height;
+    }
+
+    public double volume() {
+        return Math.PI * radius * radius * height;
+    }
+
+    public void compareByVolume(ComparableVolume other) {
+        double myVolume = this.volume();
+        double otherVolume = other.volume();
+
+        System.out.println("Cylinder Volume: " + myVolume);
+        System.out.println("Other Volume: " + otherVolume);
+
+        if (myVolume > otherVolume) {
+            System.out.println("Cylinder has greater volume.");
+        } else if (myVolume < otherVolume) {
+            System.out.println("Cylinder has lesser volume.");
+        } else {
+            System.out.println("Both have equal volume.");
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Cuboid cuboid = new Cuboid(5, 4, 3);        // Volume = 60
+        Cylinder cylinder = new Cylinder(2, 5);      // Volume ≈ 62.83
+
+        System.out.println("--- Comparing from Cuboid's perspective ---");
+        cuboid.compareByVolume(cylinder);
+
+        System.out.println("\n--- Comparing from Cylinder's perspective ---");
+        cylinder.compareByVolume(cuboid);
+    }
+}
