@@ -1,0 +1,109 @@
+q:  create an interface  printable with function display() and show(),computable with functions area(), perimeter() and volume() and interface drawable with function draw().create 
+two class rectangle and sphere which implements the above interface
+code:
+
+interface Printable {
+    void display();
+    void show();
+}
+
+interface Computable {
+    void area();
+    void perimeter();
+    void volume();
+}
+
+interface Drawable {
+    void draw();
+}
+
+class Rectangle implements Printable, Computable, Drawable {
+    double length, breadth;
+
+    Rectangle(double length, double breadth) {
+        this.length = length;
+        this.breadth = breadth;
+    }
+
+    public void area() {
+        System.out.println("Area of Rectangle: " + (length * breadth));
+    }
+
+    public void perimeter() {
+        System.out.println("Perimeter of Rectangle: " + (2 * (length + breadth)));
+    }
+
+    public void volume() {
+        System.out.println("Rectangle has no volume.");
+    }
+
+    public void display() {
+        System.out.println("Displaying Rectangle Info.");
+    }
+
+    public void show() {
+        System.out.println("Length: " + length + ", Breadth: " + breadth);
+    }
+
+    public void draw() {
+        System.out.println("Drawing a Rectangle...");
+    }
+}
+
+class Sphere implements Printable, Computable, Drawable {
+    double radius;
+
+    Sphere(double radius) {
+        this.radius = radius;
+    }
+
+    public void area() {
+        System.out.println("Surface Area of Sphere: " + (4 * Math.PI * radius * radius));
+    }
+
+    public void perimeter() {
+        System.out.println("Sphere has no perimeter (not applicable).");
+    }
+
+    public void volume() {
+        System.out.println("Volume of Sphere: " + ((4.0 / 3) * Math.PI * radius * radius * radius));
+    }
+
+    public void display() {
+        System.out.println("Displaying Sphere Info.");
+    }
+
+    public void show() {
+        System.out.println("Radius: " + radius);
+    }
+
+    public void draw() {
+        System.out.println("Drawing a Sphere...");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Rectangle rect = new Rectangle(10, 5);
+        Sphere sphere = new Sphere(7);
+
+        System.out.println("\n--- Rectangle Details ---");
+        rect.display();
+        rect.show();
+        rect.draw();
+        rect.area();
+        rect.perimeter();
+        rect.volume();
+
+        System.out.println("\n--- Sphere Details ---");
+        sphere.display();
+        sphere.show();
+        sphere.draw();
+        sphere.area();
+        sphere.perimeter();
+        sphere.volume();
+    }
+}
+
+
+
