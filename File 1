@@ -1,0 +1,36 @@
+QUESTION:   write a java program that write even numbers from aan array to a file and retrieves that values and print on screen
+
+code:
+
+import java.io.*;
+import java.util.*;
+
+public class EvenNumbersFileExample {
+    public static void main(String[] args) {
+        int[] numbers = {1, 4, 7, 10, 12, 15, 18, 20}; // Example array
+        String filename = "even_numbers.txt";
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
+            for (int num : numbers) {
+                if (num % 2 == 0) {
+                    writer.write(Integer.toString(num));
+                    writer.newLine(); // Write each number on a new line
+                }
+            }
+            System.out.println("Even numbers written to file successfully.");
+        } catch (IOException e) {
+            System.out.println("An error occurred while writing to the file.");
+            e.printStackTrace();
+        }
+
+        System.out.println("Even numbers read from file:");
+        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line); // Print each even number
+            }
+        } catch (IOException e) {
+            System.out.println("An error occurred while reading from the file.");
+            e.printStackTrace();
+        }
+    }
+}
